@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muestra digital de Artes Música 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbf6ee; --ink:#1f2433; --muted:#5d6475; --card:#ffffff;
+  --navy:#1d2a4d; --orig:#d9822b; --orig-soft:#fdeedb;
+  --ia:#3a5bd9; --ia-soft:#e6ecff; --line:#e8dfd0;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* Hero */
+header.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:64px 0 84px}
+header.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 300px at 85% 10%,rgba(217,130,43,.35),transparent 70%),
+  radial-gradient(500px 280px at 5% 100%,rgba(58,91,217,.45),transparent 70%)}
+.eq{position:absolute;right:24px;bottom:0;display:flex;gap:6px;align-items:flex-end;height:120px;opacity:.28}
+.eq i{display:block;width:8px;border-radius:4px 4px 0 0;background:#fff;animation:eq 1.6s ease-in-out infinite}
+.eq i:nth-child(1){height:40%;animation-delay:-.1s}.eq i:nth-child(2){height:75%;animation-delay:-.5s}
+.eq i:nth-child(3){height:55%;animation-delay:-.9s}.eq i:nth-child(4){height:95%;animation-delay:-.3s}
+.eq i:nth-child(5){height:45%;animation-delay:-1.2s}.eq i:nth-child(6){height:70%;animation-delay:-.7s}
+.eq i:nth-child(7){height:35%;animation-delay:-1.4s}
+@keyframes eq{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.eq i{animation:none}}
+.hero .wrap{position:relative}
+.kicker{display:inline-block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#ffd9ad;border:1px solid rgba(255,217,173,.4);padding:5px 12px;border-radius:99px;margin-bottom:22px}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:800;max-width:15ch}
+.hero .prof{margin-top:18px;font-size:1.2rem;color:#d7def5}
+.hero .prof b{color:#fff;font-weight:700}
+
+/* Intro */
+.intro{margin-top:-40px;position:relative}
+.intro .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 28px;box-shadow:0 10px 30px rgba(31,36,51,.08);font-size:1.08rem}
+.intro .box p{margin:0}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:.95rem;color:var(--muted)}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+
+/* Showcase */
+section.show{padding:54px 0 30px}
+.sec-title{font-size:clamp(1.6rem,3.5vw,2.2rem);margin-bottom:6px}
+.sec-sub{color:var(--muted);margin:0 0 28px}
+.colhead{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:10px;padding:0 4px}
+.colhead div{font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.colhead .a{color:var(--orig)}.colhead .b{color:var(--ia)}
+.pair{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px;box-shadow:0 4px 14px rgba(31,36,51,.05)}
+.pair-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:2px 4px 14px}
+.course{font-family:'Fraunces',serif;font-weight:800;font-size:1.35rem;color:var(--navy)}
+.turno{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--navy);color:#fff;border-radius:99px;padding:3px 11px}
+.song{color:var(--muted);font-size:1rem}
+.song em{font-style:normal;color:var(--ink);font-weight:700}
+.players{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.player{border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.player.o{background:var(--orig-soft)}
+.player.i{background:var(--ia-soft)}
+.tag{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.o .tag{color:#a85a0b}.i .tag{color:#2745b8}
+.ctrl{display:flex;align-items:center;gap:14px}
+.play{flex:none;width:54px;height:54px;border-radius:50%;border:0;cursor:pointer;color:#fff;display:grid;place-items:center;transition:transform .12s,box-shadow .12s;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.o .play{background:var(--orig)}.i .play{background:var(--ia)}
+.play:hover{transform:scale(1.06)}
+.play:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.play svg{width:22px;height:22px;fill:#fff}
+.play .pa{display:none}
+.player.playing .play .pl{display:none}.player.playing .play .pa{display:block}
+.track{flex:1;min-width:0}
+.bar{position:relative;height:8px;border-radius:99px;background:rgba(31,36,51,.14);cursor:pointer;touch-action:none}
+.bar .fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px}
+.o .fill{background:var(--orig)}.i .fill{background:var(--ia)}
+.bar .knob{position:absolute;top:50%;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid;transform:translate(-50%,-50%);left:0}
+.o .knob{border-color:var(--orig)}.i .knob{border-color:var(--ia)}
+.time{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);margin-top:7px;font-variant-numeric:tabular-nums}
+.note{font-size:.85rem;color:var(--muted)}
+.lnk{background:none;border:0;padding:0;font:inherit;color:#2745b8;text-decoration:underline;cursor:pointer}
+
+/* Explanation */
+section.expl{padding:30px 0 70px}
+.expl-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px clamp(20px,4vw,44px)}
+.expl h2{font-size:clamp(1.7rem,3.6vw,2.4rem);margin-bottom:18px}
+.expl h3{font-size:1.3rem;margin:30px 0 12px;color:var(--navy)}
+.expl p{margin:0 0 14px;font-size:1.06rem}
+.goal{background:var(--orig-soft);border-left:5px solid var(--orig);border-radius:10px;padding:16px 20px;margin:0 0 6px}
+.goal p{margin:0}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:12px}
+ol.steps li{counter-increment:s;position:relative;padding:14px 16px 14px 62px;background:#faf7f1;border-radius:12px;border:1px solid var(--line)}
+ol.steps li::before{content:counter(s);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;display:grid;place-items:center;font-family:'Fraunces',serif}
+ol.steps li b{color:var(--navy)}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin:8px 0 4px}
+.chip{background:var(--ia-soft);color:#243a91;border-radius:99px;padding:6px 14px;font-weight:500;font-size:.95rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mini{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:#faf7f1}
+.mini h4{margin:0 0 8px;font-family:'Fraunces',serif;font-size:1.1rem;color:var(--navy)}
+.mini ul{margin:0;padding-left:20px}
+.mini li{margin:4px 0}
+footer{background:var(--navy);color:#c9d1ee;text-align:center;padding:26px 20px;font-size:.95rem}
+footer b{color:#fff}
+
+@media (max-width:760px){
+  .colhead{display:none}
+  .players{grid-template-columns:1fr;gap:12px}
+  .cols{grid-template-columns:1fr}
+  .eq{display:none}
+  header.hero{padding:48px 0 70px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap">
+    <span class="kicker">Artes · Música</span>
+    <h1>Muestra digital de Artes Música 2026</h1>
+    <p class="prof">Profesor <b>Diego Comerci</b></p>
+  </div>
+</header>
+
+<main>
+<div class="wrap intro">
+  <div class="box">
+    <p>A continuación van a poder escuchar canciones compuestas e interpretadas por alumnos de diferentes cursos: primero, la <b>grabación original</b> realizada en el aula y, a su lado, la <b>maqueta realizada con inteligencia artificial</b> a partir de esa misma grabación.</p>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--orig)"></span>Grabación original de los alumnos</span>
+      <span><span class="dot" style="background:var(--ia)"></span>Maqueta realizada con IA</span>
+    </div>
+  </div>
+</div>
+
+<section class="show">
+  <div class="wrap">
+    <h2 class="sec-title">Antes y después</h2>
+    <p class="sec-sub">Toquen el botón de play para escuchar la grabación original y, a su lado, la maqueta de cada curso.</p>
+
+    <div class="colhead" aria-hidden="true"><div class="a">Grabación original</div><div class="b">Maqueta con IA</div></div>
+
+    <div id="pairs"></div>
+  </div>
+</section>
+
+<section class="expl">
+  <div class="wrap">
+    <div class="expl-card">
+      <h2>Sobre la actividad</h2>
+
+      <div class="goal">
+        <p><b>Objetivo de la actividad:</b> utilizar los recursos teóricos y prácticos vistos a lo largo de todo el año para componer una canción, grabarla interpretándola en el aula y, luego, emplear la inteligencia artificial para armar una <b>maqueta</b>: una aproximación, una idea de cómo quedaría la canción grabada profesionalmente.</p>
+      </div>
+
+      <h3>¿Cómo se desarrolló la actividad?</h3>
+      <ol class="steps">
+        <li><b>Definición del marco creativo.</b> Entre todos establecimos un género musical y una temática para la canción.</li>
+        <li><b>Escritura colectiva de la letra.</b> Cada estudiante escribió un renglón, siguiendo la estructura de versos y rimas trabajada en clase (por ejemplo, el esquema en el que la última palabra de la segunda frase rima con la de la cuarta). Algunos debían rimar con lo escrito por un compañero, de modo que la letra se construyó en conjunto.</li>
+        <li><b>Ajustes de métrica.</b> En la sala de música revisamos la letra para que se adaptara a la métrica musical y pudiera cantarse con fluidez.</li>
+        <li><b>Composición de la melodía vocal y la armonía.</b> Establecimos los acordes, la percusión y la línea melódica de la voz, aplicando los conceptos vistos durante el año.</li>
+        <li><b>Interpretación instrumental.</b> Los estudiantes tocaron los instrumentos trabajados en clase y cantaron la canción con su melodía.</li>
+        <li><b>Registro de una grabación base.</b> Grabamos la interpretación de manera sencilla, para contar con una muestra de audio que conservara nuestras decisiones musicales.</li>
+        <li><b>Maqueta con inteligencia artificial.</b> Cargamos esa grabación en la plataforma Suno (en su versión gratuita) y dimos indicaciones específicas en función de los contenidos estudiados: ritmo, género —incluso combinando varios—, instrumentos a agregar o quitar y la letra de la canción.</li>
+        <li><b>Análisis del resultado.</b> Escuchamos la maqueta obtenida y la comparamos con la grabación original.</li>
+      </ol>
+
+      <h3>Instrumentos que tocaron los estudiantes</h3>
+      <div class="chips">
+        <span class="chip">Batería</span><span class="chip">Cajón peruano</span><span class="chip">Panderetas</span>
+        <span class="chip">Xilofón</span><span class="chip">Guitarra</span><span class="chip">Piano</span><span class="chip">Bajo eléctrico</span>
+      </div>
+
+      <h3>¿Qué conserva la inteligencia artificial de nuestra composición?</h3>
+      <p>La herramienta respeta, en gran medida, el <b>tempo</b>, el <b>ritmo</b>, el <b>género</b> indicado, la <b>armonía</b> y la <b>línea melódica</b> que los estudiantes compusieron. Es decir: las decisiones musicales siguen siendo de los alumnos; la IA aporta el “vestido” sonoro, una aproximación de cómo podría sonar una producción profesional.</p>
+
+      <div class="cols" style="margin-top:22px">
+        <div class="mini">
+          <h4>Contenidos que se pusieron en juego</h4>
+          <ul>
+            <li>Estructura de la canción (versos y estribillo)</li>
+            <li>Rima y métrica</li>
+            <li>Melodía vocal y armonía</li>
+            <li>Ritmo, tempo y género musical</li>
+            <li>Ejecución instrumental y trabajo en conjunto</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <h4>Aprendizajes y competencias</h4>
+          <ul>
+            <li>Creación colectiva y trabajo colaborativo</li>
+            <li>Aplicación integrada de los saberes del año</li>
+            <li>Escucha atenta y análisis comparativo</li>
+            <li>Uso crítico y creativo de tecnologías digitales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <b>Muestra digital de Artes Música 2026</b> · Profesor Diego Comerci
+</footer>
+
+<script>
+const SONGS=[
+  {course:"1A", title:"Cuando te veo bailar", o:"audio/orig-1a.mp3", i:"audio/chorus-1a.mp3", full:"audio/suno-1a.mp3"},
+  {course:"1B", title:"Tu dolor",             o:"audio/orig-1b.mp3", i:"audio/chorus-1b.mp3", full:"audio/suno-1b.mp3"},
+  {course:"2A", title:"La soledad",           o:"audio/orig-2a.mp3", i:"audio/chorus-2a.mp3", full:"audio/suno-2a.mp3"},
+  {course:"4C",  title:"Si te vas",            o:"audio/orig-4c.mp3", i:"audio/chorus-4c.mp3", full:"audio/suno-4c.mp3"},
+  {course:"4D",  title:"La realidad",          o:"audio/orig-4d.mp3", i:"audio/chorus-4d.mp3", full:"audio/suno-4d.mp3"}
+];
+const PLAY='<svg class="pl" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="pa" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
+const players=[];
+
+function mk(kind,src,label,note,full){
+  const el=document.createElement("div");
+  el.className="player "+kind;
+  el.innerHTML=`<div class="tag">${label}</div>
+    <div class="ctrl">
+      <button class="play" aria-label="Reproducir ${label}">${PLAY}</button>
+      <div class="track">
+        <div class="bar" role="slider" aria-label="Posición" tabindex="0"><div class="fill"></div><div class="knob"></div></div>
+        <div class="time"><span class="cur">0:00</span><span class="dur">–:––</span></div>
+      </div>
+    </div>
+    ${full?'<div class="note"><button class="lnk" type="button">Escuchar canción completa</button></div>':''}`;
+  const a=new Audio(); a.preload="metadata"; a.src=src;
+  const btn=el.querySelector(".play"),bar=el.querySelector(".bar"),fill=el.querySelector(".fill"),knob=el.querySelector(".knob"),cur=el.querySelector(".cur"),dur=el.querySelector(".dur");
+  const upd=()=>{const p=a.duration?a.currentTime/a.duration*100:0;fill.style.width=p+"%";knob.style.left=p+"%";cur.textContent=fmt(a.currentTime);bar.setAttribute("aria-valuenow",Math.round(p));};
+  a.addEventListener("loadedmetadata",()=>{dur.textContent=fmt(a.duration)});
+  a.addEventListener("timeupdate",upd);
+  a.addEventListener("ended",()=>{el.classList.remove("playing");a.currentTime=0;upd()});
+  a.addEventListener("pause",()=>el.classList.remove("playing"));
+  a.addEventListener("play",()=>el.classList.add("playing"));
+  const stopOthers=()=>players.forEach(p=>{if(p!==a&&!p.paused)p.pause()});
+  btn.addEventListener("click",()=>{
+    if(a.paused){stopOthers();a.play().catch(()=>{})}else a.pause();
+  });
+  const seek=e=>{const r=bar.getBoundingClientRect();const x=(e.clientX-r.left)/r.width;if(a.duration)a.currentTime=Math.min(1,Math.max(0,x))*a.duration;upd()};
+  let drag=false;
+  bar.addEventListener("pointerdown",e=>{drag=true;bar.setPointerCapture(e.pointerId);seek(e)});
+  bar.addEventListener("pointermove",e=>{if(drag)seek(e)});
+  bar.addEventListener("pointerup",()=>drag=false);
+  bar.addEventListener("keydown",e=>{
+    if(e.key==="ArrowRight")a.currentTime=Math.min(a.duration||0,a.currentTime+5);
+    if(e.key==="ArrowLeft")a.currentTime=Math.max(0,a.currentTime-5);
+  });
+  const lb=el.querySelector(".lnk");
+  if(lb){let isFull=false;lb.addEventListener("click",()=>{
+    a.pause();isFull=!isFull;a.src=isFull?full:src;a.load();dur.textContent="–:––";fill.style.width="0%";knob.style.left="0%";cur.textContent="0:00";
+    lb.textContent=isFull?"Volver al estribillo":"Escuchar canción completa";
+    el.querySelector(".tag").textContent=isFull?"Maqueta con IA · canción completa":"Maqueta con IA";
+    stopOthers();a.play().catch(()=>{});});}
+  players.push(a);
+  return el;
+}
+
+const host=document.getElementById("pairs");
+SONGS.forEach(s=>{
+  const card=document.createElement("article");
+  card.className="pair";
+  card.innerHTML=`<div class="pair-head"><span class="course">${s.course}</span><span class="turno">Turno tarde</span><span class="song">“<em>${s.title}</em>”</span></div><div class="players"></div>`;
+  const row=card.querySelector(".players");
+  row.appendChild(mk("o",s.o,"Grabación original",""));
+  row.appendChild(mk("i",s.i,"Maqueta con IA","",s.full));
+  host.appendChild(card);
+});
+</script>
+</body>
+</html>
